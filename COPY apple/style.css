@@ -1,0 +1,656 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 55px
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1d1d1f;
+    background: #fff
+}
+
+a {
+    text-decoration: none
+}
+
+img {
+    max-width: 100%
+}
+
+.navbar {
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(22, 22, 23, .97);
+    backdrop-filter: blur(15px)
+}
+
+.logo {
+    color: #f5f5f7;
+    font-size: 23px;
+    line-height: 1;
+    position: relative
+}
+
+.logo:before {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 7px;
+    background: #f5f5f7;
+    border-radius: 100% 0 100% 0;
+    top: -5px;
+    right: 1px;
+    transform: rotate(-30deg)
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 1.7vw, 24px)
+}
+
+.desktop-nav a {
+    color: #d6d6d6;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: color .2s
+}
+
+.desktop-nav a:hover,
+.nav-icons a:hover {
+    color: #fff
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px
+}
+
+.nav-icons a {
+    color: #d6d6d6;
+    font-size: 21px
+}
+
+.mobile-menu {
+    display: none;
+    color: white
+}
+
+.mobile-menu summary {
+    list-style: none;
+    cursor: pointer;
+    font-size: 23px
+}
+
+.mobile-menu summary::-webkit-details-marker {
+    display: none
+}
+
+.mobile-links {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 25px 35px;
+    background: #161617;
+    flex-direction: column;
+    gap: 23px
+}
+
+.mobile-menu[open] .mobile-links {
+    display: flex
+}
+
+.mobile-links a {
+    color: #f5f5f7;
+    font-size: 22px
+}
+
+.hero {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 12px
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 55px 20px 0
+}
+
+.hero h1,
+.hero h2 {
+    font-size: clamp(42px, 5.3vw, 68px);
+    font-weight: 650;
+    letter-spacing: -2.8px
+}
+
+.hero-content>p {
+    font-size: clamp(22px, 2.5vw, 30px);
+    margin-top: 9px
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 23px
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 23px;
+    border-radius: 30px;
+    font-size: 16px;
+    border: 1px solid #0077ed;
+    transition: background .2s, color .2s, transform .2s
+}
+
+.btn.primary {
+    background: #0077ed;
+    color: #fff
+}
+
+.btn.primary:hover {
+    background: #147ce5;
+    transform: scale(1.04)
+}
+
+.btn.secondary {
+    color: #2997ff;
+    background: transparent
+}
+
+.btn.secondary:hover {
+    background: #0077ed;
+    color: white
+}
+
+.iphone-hero {
+    min-height: 600px;
+    background: #000;
+    color: #f5f5f7
+}
+
+.iphone-image {
+    display: block;
+    width: min(100%, 1250px);
+    height: 350px;
+    object-fit: cover;
+    object-position: center 55%;
+    margin: 45px auto 0
+}
+
+.duo-hero {
+    min-height: 580px;
+    background: #f5f5f7;
+    color: #1d1d1f
+}
+
+.duo-hero .hero-content {
+    padding-top: 45px
+}
+
+.duo-hero .small-copy {
+    color: #6e6e73;
+    font-size: 16px;
+    margin-top: 12px
+}
+
+.duo-image {
+    display: block;
+    width: min(100%, 850px);
+    height: 330px;
+    object-fit: contain;
+    margin: 20px auto 0
+}
+
+.watch-hero {
+    min-height: 590px;
+    background: #000;
+    color: #f5f5f7
+}
+
+.watch-hero .hero-content {
+    padding-top: 35px
+}
+
+.watch-hero .watch-title {
+    font-size: clamp(30px, 4.5vw, 52px);
+    letter-spacing: -1.5px
+}
+
+.watch-image {
+    display: block;
+    width: min(100%, 850px);
+    height: 345px;
+    object-fit: contain;
+    margin: 12px auto 0
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 12px
+}
+
+.product-card {
+    min-width: 0;
+    min-height: 530px;
+    text-align: center;
+    padding: 40px 18px 0;
+    overflow: hidden
+}
+
+.product-card h2 {
+    font-size: clamp(32px, 3.5vw, 46px);
+    font-weight: 650;
+    letter-spacing: -1.8px
+}
+
+.product-card>p {
+    font-size: clamp(17px, 2vw, 21px);
+    margin-top: 9px
+}
+
+.product-card .buttons {
+    gap: 12px;
+    margin-top: 20px
+}
+
+.product-card .btn {
+    padding: 10px 18px;
+    font-size: 14px
+}
+
+.product-card img {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: 320px;
+    object-fit: contain;
+    margin: 20px auto 0
+}
+
+.dark-card,
+.airpods-card {
+    background: #000;
+    color: #f5f5f7
+}
+
+.blue-card {
+    background: #d9efff;
+    color: #1d1d1f
+}
+
+.light-card,
+.vision-card {
+    background: #f5f5f7;
+    color: #1d1d1f
+}
+
+.tv-card {
+    background: #e9e9eb;
+    color: #1d1d1f
+}
+
+.entertainment {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 35px
+}
+
+.entertainment-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 5px;
+    height: 280px
+}
+
+.ent-card {
+    position: relative;
+    overflow: hidden;
+    background: #222;
+    color: white
+}
+
+.ent-card>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s
+}
+
+.ent-card:hover>img {
+    transform: scale(1.04)
+}
+
+.ent-overlay {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 22px 14px;
+    text-align: center;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .82))
+}
+
+.ent-overlay h2 {
+    font-size: clamp(16px, 2vw, 25px)
+}
+
+.ent-overlay p {
+    font-size: 12px;
+    margin: 7px 0 12px
+}
+
+.ent-button {
+    display: inline-block;
+    color: #111;
+    background: #f5f5f7;
+    border-radius: 20px;
+    padding: 7px 13px;
+    font-size: 11px
+}
+
+.mini-entertainment {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 5px;
+    margin-top: 5px
+}
+
+.mini-card {
+    min-height: 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 12px;
+    color: white;
+    background: linear-gradient(140deg, #243c5a, #a65b4b)
+}
+
+.mini-card h3 {
+    font-size: 15px
+}
+
+.mini-card p {
+    font-size: 10px;
+    margin-top: 5px
+}
+
+.mini-two {
+    background: linear-gradient(140deg, #345e40, #d4a16a)
+}
+
+.mini-three {
+    background: linear-gradient(140deg, #f1a7cf, #7971c9)
+}
+
+.mini-four {
+    background: linear-gradient(140deg, #45213e, #c16e85)
+}
+
+.mini-five {
+    background: linear-gradient(140deg, #0475be, #142a56)
+}
+
+.apple-footer {
+    background: #f5f5f7;
+    color: #6e6e73;
+    padding: 25px 20px;
+    font-size: 11px
+}
+
+.footer-notes,
+.footer-columns,
+.footer-bottom {
+    max-width: 1000px;
+    margin: 0 auto
+}
+
+.footer-notes {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #d2d2d7;
+    line-height: 1.8
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    padding: 22px 0
+}
+
+.footer-columns h4 {
+    color: #1d1d1f;
+    font-size: 11px;
+    margin-bottom: 10px
+}
+
+.footer-columns a {
+    display: block;
+    color: #515154;
+    font-size: 10px;
+    margin-bottom: 9px
+}
+
+.footer-columns a:hover {
+    text-decoration: underline
+}
+
+.footer-columns .subheading {
+    margin-top: 22px
+}
+
+.footer-bottom {
+    border-top: 1px solid #d2d2d7;
+    padding-top: 15px;
+    line-height: 1.8
+}
+
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 10px
+}
+
+.footer-legal a {
+    color: #515154
+}
+
+@media(max-width:1050px) {
+    .navbar {
+        gap: 18px
+    }
+
+    .desktop-nav {
+        gap: 14px
+    }
+
+    .desktop-nav a {
+        font-size: 11px
+    }
+
+    .desktop-nav a:nth-child(n+9) {
+        display: none
+    }
+}
+
+@media(max-width:700px) {
+    .navbar {
+        justify-content: space-between;
+        gap: 15px;
+        padding: 0 20px
+    }
+
+    .desktop-nav {
+        display: none
+    }
+
+    .mobile-menu {
+        display: block
+    }
+
+    .nav-icons {
+        margin-left: auto;
+        gap: 18px
+    }
+
+    .hero {
+        margin-bottom: 8px
+    }
+
+    .hero-content {
+        padding: 42px 15px 0
+    }
+
+    .hero h1,
+    .hero h2 {
+        letter-spacing: -1.8px
+    }
+
+    .buttons {
+        gap: 12px;
+        margin-top: 20px
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 18px
+    }
+
+    .iphone-hero {
+        min-height: 460px
+    }
+
+    .iphone-image {
+        height: 240px;
+        margin-top: 35px
+    }
+
+    .duo-hero {
+        min-height: 450px
+    }
+
+    .duo-hero .hero-content {
+        padding-top: 38px
+    }
+
+    .duo-image {
+        height: 250px;
+        margin-top: 20px
+    }
+
+    .watch-hero {
+        min-height: 480px
+    }
+
+    .watch-hero .hero-content {
+        padding-top: 35px
+    }
+
+    .watch-image {
+        height: 250px;
+        margin-top: 18px
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 0 8px
+    }
+
+    .product-card {
+        min-height: 450px;
+        padding-top: 35px
+    }
+
+    .product-card h2 {
+        font-size: 35px
+    }
+
+    .product-card img {
+        height: 270px;
+        margin-top: 20px
+    }
+
+    .entertainment-grid {
+        grid-template-columns: 1fr;
+        height: auto
+    }
+
+    .ent-card {
+        height: 240px
+    }
+
+    .mini-entertainment {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .mini-card:last-child {
+        grid-column: 1/-1
+    }
+
+    .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 18px
+    }
+
+    .footer-legal {
+        gap: 8px 12px
+    }
+}
+
+@media(max-width:380px) {
+    .nav-icons {
+        gap: 12px
+    }
+
+    .hero h1,
+    .hero h2 {
+        font-size: 37px
+    }
+
+    .hero-content>p {
+        font-size: 21px
+    }
+
+    .product-card .buttons {
+        gap: 8px
+    }
+
+    .product-card .btn {
+        padding: 9px 13px;
+        font-size: 13px
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .mini-card {
+        min-height: 100px;
+        padding: 8px
+    }
+}
